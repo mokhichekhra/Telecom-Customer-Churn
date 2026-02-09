@@ -8,9 +8,9 @@ Author: **Mokhichekhra Makhmudova**
 
 This is a small end‑to‑end machine learning project:
 
-- You explore and clean Telekom customer data in a Jupyter Notebook. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- You train and save a machine learning model and a scaler. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- You build a simple Streamlit web app to make churn predictions for new customers. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
+- You explore and clean Telekom customer data in a Jupyter Notebook. 
+- You train and save a machine learning model and a scaler. 
+- You build a simple Streamlit web app to make churn predictions for new customers. 
 
 The goal is to give a clear, beginner‑friendly example of a churn prediction workflow that can later be extended with more features.
 
@@ -18,50 +18,50 @@ The goal is to give a clear, beginner‑friendly example of a churn prediction w
 
 ## Dataset
 
-The dataset is stored in `customer_churn_data.csv` and contains 1,000 rows and 10 columns. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
+The dataset is stored in `customer_churn_data.csv` and contains 1,000 rows and 10 columns.
 
 Main columns:
 
-- **CustomerID**: Unique customer identifier. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **Age**: Customer age (integer). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **Gender**: Male or Female. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **Tenure**: Number of months the customer has stayed with the company. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **MonthlyCharges**: Monthly bill amount. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **ContractType**: Month‑to‑Month, One‑Year, or Two‑Year. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **InternetService**: None, DSL, or Fiber Optic. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **TotalCharges**: Total amount charged during the contract. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **TechSupport**: Yes or No. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/93ca33bc-4cf0-4af0-9f8e-f8dee9ca832e/customer_churn_data.csv)
-- **Churn**: Target variable, Yes if the customer churned, otherwise No. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- **CustomerID**: Unique customer identifier. 
+- **Age**: Customer age (integer). 
+- **Gender**: Male or Female. 
+- **Tenure**: Number of months the customer has stayed with the company. 
+- **MonthlyCharges**: Monthly bill amount. 
+- **ContractType**: Month‑to‑Month, One‑Year, or Two‑Year. 
+- **InternetService**: None, DSL, or Fiber Optic. 
+- **TotalCharges**: Total amount charged during the contract. 
+- **TechSupport**: Yes or No. 
+- **Churn**: Target variable, Yes if the customer churned, otherwise No. 
 
 In this version of the model, only a subset of features is used:
 
 - **Age**  
-- **Gender** (encoded as 1 = Female, 0 = Male) [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- **Gender** (encoded as 1 = Female, 0 = Male)
 - **Tenure**  
-- **MonthlyCharges** [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- **MonthlyCharges** 
 
 ***
 
 ## Exploratory Data Analysis (EDA)
 
-EDA is done in `notebook.ipynb`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+EDA is done in `notebook.ipynb`. 
 
 Key steps:
 
-- **Data inspection**: `df.head()`, `df.info()`, and `df.describe()` to understand basic structure and summary statistics. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **Missing values**: `InternetService` missing values are filled before modeling. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **Duplicates**: Checked with `df.duplicated().sum()`; none are kept. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **Correlation analysis**: A correlation matrix is created for numeric columns (CustomerID, Age, Tenure, MonthlyCharges, TotalCharges). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- **Churn distribution**: Pie chart of churn vs non‑churn customers. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- **Data inspection**: `df.head()`, `df.info()`, and `df.describe()` to understand basic structure and summary statistics. 
+- **Missing values**: `InternetService` missing values are filled before modeling. 
+- **Duplicates**: Checked with `df.duplicated().sum()`; none are kept. 
+- **Correlation analysis**: A correlation matrix is created for numeric columns (CustomerID, Age, Tenure, MonthlyCharges, TotalCharges). 
+- **Churn distribution**: Pie chart of churn vs non‑churn customers. 
 - **Group statistics**:  
-  - Mean MonthlyCharges by Churn. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-  - Mean MonthlyCharges by Churn and Gender. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-  - Mean Tenure by Churn. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-  - Mean Age by Churn. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+  - Mean MonthlyCharges by Churn. 
+  - Mean MonthlyCharges by Churn and Gender. 
+  - Mean Tenure by Churn. 
+  - Mean Age by Churn. 
 - **Visualizations**:  
-  - Histogram of Tenure. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-  - Histogram of MonthlyCharges. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-  - Bar chart of average MonthlyCharges by ContractType. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+  - Histogram of Tenure. 
+  - Histogram of MonthlyCharges. 
+  - Bar chart of average MonthlyCharges by ContractType. 
 
 These steps help to understand how churn is related to age, monthly charges, and tenure.
 
@@ -69,54 +69,53 @@ These steps help to understand how churn is related to age, monthly charges, and
 
 ## Modeling
 
-All modeling code is in `notebook.ipynb`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+All modeling code is in `notebook.ipynb`. 
 
 ### Feature Engineering
 
-- Input features **X**: `Age`, `Gender`, `Tenure`, `MonthlyCharges`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- Target **y**: `Churn`, encoded as 1 for Yes and 0 for No. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- `Gender` is converted to numeric: 1 = Female, 0 = Male. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- Input features **X**: `Age`, `Gender`, `Tenure`, `MonthlyCharges`. 
+- Target **y**: `Churn`, encoded as 1 for Yes and 0 for No. 
+- `Gender` is converted to numeric: 1 = Female, 0 = Male. 
 
 ### Train–Test Split
 
-- Train–test split with 80% training and 20% test data using `train_test_split` from scikit‑learn. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-
+- Train–test split with 80% training and 20% test data using `train_test_split` from scikit‑learn. 
 ### Scaling
 
-- Numerical features are standardized using `StandardScaler`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- The scaler is fitted on the training data and saved using `joblib` to `scaler.pkl`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- Numerical features are standardized using `StandardScaler`. 
+- The scaler is fitted on the training data and saved using `joblib` to `scaler.pkl`. 
 
 ### Model
 
-- The main classifier is **Logistic Regression** (`sklearn.linear_model.LogisticRegression`). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- The model is trained on the scaled training data. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- Model performance is evaluated using accuracy on the test set. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- The trained model is saved using `joblib` to `model.pkl`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- The main classifier is **Logistic Regression** (`sklearn.linear_model.LogisticRegression`). 
+- The model is trained on the scaled training data. 
+- Model performance is evaluated using accuracy on the test set. 
+- The trained model is saved using `joblib` to `model.pkl`.
 
 ***
 
 ## Streamlit Application
 
-The interactive web app is defined in `app.py` and uses the saved scaler and model. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
+The interactive web app is defined in `app.py` and uses the saved scaler and model. 
 
 ### App Features
 
-- Loads `scaler.pkl` and `model.pkl` with `joblib`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- Shows the title “Churn Prediction App”. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
+- Loads `scaler.pkl` and `model.pkl` with `joblib`. 
+- Shows the title “Churn Prediction App”. 
 - Asks the user to input:  
-  - **Age** (number input between 10 and 100). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-  - **Tenure** (number input between 0 and 130). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-  - **MonthlyCharges** (number input between 30 and 150). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-  - **Gender** (selectbox: Male, Female). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
+  - **Age** (number input between 10 and 100). 
+  - **Tenure** (number input between 0 and 130).
+  - **MonthlyCharges** (number input between 30 and 150). 
+  - **Gender** (selectbox: Male, Female).
 
 ### Prediction Logic
 
-- Gender is converted to numeric: 1 if Female, otherwise 0. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- The feature vector `[Age, Gender, Tenure, MonthlyCharges]` is created and reshaped to a NumPy array. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- The array is scaled with the loaded `scaler`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- The scaled features are passed to the loaded `model` for prediction. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- The app outputs “Yes” if churn is predicted (class 1), otherwise “No”. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-- On a successful prediction, Streamlit balloons are shown, and the predicted value is displayed. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
+- Gender is converted to numeric: 1 if Female, otherwise 0. 
+- The feature vector `[Age, Gender, Tenure, MonthlyCharges]` is created and reshaped to a NumPy array. 
+- The array is scaled with the loaded `scaler`. 
+- The scaled features are passed to the loaded `model` for prediction. 
+- The app outputs “Yes” if churn is predicted (class 1), otherwise “No”. 
+- On a successful prediction, Streamlit balloons are shown, and the predicted value is displayed. 
 
 ***
 
@@ -129,8 +128,8 @@ Place the following files in the same project folder:
 - `customer_churn_data.csv`  
 - `notebook.ipynb`  
 - `app.py`  
-- `model.pkl` (saved from the notebook) [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-- `scaler.pkl` (saved from the notebook) [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+- `model.pkl` 
+- `scaler.pkl` 
 
 ### 2. Create and Activate a Virtual Environment (Optional but Recommended)
 
@@ -156,10 +155,10 @@ If you want to retrain the model:
 
 1. Open `notebook.ipynb` in Jupyter Notebook or JupyterLab.  
 2. Run all cells to:
-   - Load and clean the dataset. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-   - Create features and target. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-   - Split, scale, and train the model. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
-   - Save `scaler.pkl` and `model.pkl`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/923d9701-a0d5-4d3a-a1a8-02683b1b7ccb/notebook.ipynb)
+   - Load and clean the dataset.
+   - Create features and target. 
+   - Split, scale, and train the model. 
+   - Save `scaler.pkl` and `model.pkl`. 
 
 ### 5. Run the Streamlit App
 
@@ -173,8 +172,7 @@ Then open the URL shown in the terminal (usually `http://localhost:8501`) and:
 
 1. Enter Age, Tenure, MonthlyCharges.  
 2. Choose Gender.  
-3. Click **Predict!** to see whether the model predicts churn or not. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/105503230/03646449-f97f-43ee-acab-095dbd7680ab/app.py)
-
+3. Click **Predict!** to see whether the model predicts churn or not. 
 ***
 
 ## File Structure
